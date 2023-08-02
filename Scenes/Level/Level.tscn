@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://wbb84r1s55pq"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Scripts/Level.gd" id="1_1hy3g"]
+[ext_resource type="PackedScene" uid="uid://yd3o5c1m7g0e" path="res://Scenes/Spaceship/spaceship.tscn" id="1_s2bfg"]
+[ext_resource type="PackedScene" uid="uid://dsmf5k6i2gr6v" path="res://Scenes/Planet/Planets/start_planet.tscn" id="3_otrxb"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_1hy3g")
+
+[node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
+position = Vector2(195, 174)
+
+[node name="Camera2D" type="Camera2D" parent="Spaceship"]
+
+[node name="Planets" type="Node" parent="."]
+
+[node name="BigPlanet" parent="Planets" instance=ExtResource("3_otrxb")]
+position = Vector2(195, 216)
