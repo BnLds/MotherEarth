@@ -7,9 +7,6 @@ class_name Spaceship
 var has_left_planet:= false
 
 func _physics_process(delta):
-	if sleeping:
-		return
-	
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(-torque_value)
 		
@@ -25,4 +22,3 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area is BigPlanet && has_left_planet:
 		sleeping = true
-	

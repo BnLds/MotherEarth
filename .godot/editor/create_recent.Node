@@ -1,7 +1,14 @@
-Camera2D
-Area2D
+Timer
 Node
 Control
+Container
+ColorRect
+HBoxContainer
+Label
+CanvasLayer
+CanvasGroup
+Camera2D
+Area2D
 Sprite2D
 CollisionShape2D
 RigidBody2D
