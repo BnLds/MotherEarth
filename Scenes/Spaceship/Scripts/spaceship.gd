@@ -6,6 +6,9 @@ class_name Spaceship
 
 @onready var boost_animation = $BoostAnimation
 
+signal start_boosting
+signal stop_boosting
+
 var has_left_planet:= false
 
 func _ready():
@@ -24,8 +27,10 @@ func _physics_process(delta):
 		var boost_vect = -transform.y * boost_value
 		apply_force(boost_vect)
 		PlayBoostAnimation(true)
+		start_boosting.emit()
 	else:
 		PlayBoostAnimation(false)
+		stop_boosting.emit()
 
 func _on_area_2d_area_entered(area):
 	if area is BigPlanet && has_left_planet:

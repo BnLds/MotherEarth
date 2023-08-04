@@ -116,6 +116,37 @@ offset_bottom = 10.0
 size_flags_horizontal = 3
 color = Color(0.14902, 0.552941, 0.0352941, 1)
 
+[node name="Fuel_UI" type="Control" parent="UILayer/UI"]
+anchors_preset = 0
+offset_top = 33.0
+offset_right = 97.0
+offset_bottom = 47.0
+
+[node name="FuelLabel" type="Label" parent="UILayer/UI/Fuel_UI"]
+layout_mode = 2
+offset_right = 22.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 10
+text = "Fuel"
+
+[node name="FuelBarBackground" type="ColorRect" parent="UILayer/UI/Fuel_UI"]
+layout_mode = 2
+offset_left = 29.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 10.0
+size_flags_horizontal = 3
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="FuelBarFill" type="ColorRect" parent="UILayer/UI/Fuel_UI"]
+layout_mode = 2
+offset_left = 29.0
+offset_top = 4.0
+offset_right = 86.0
+offset_bottom = 10.0
+size_flags_horizontal = 3
+color = Color(0.760784, 0.0156863, 0.705882, 1)
+
 [node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
 position = Vector2(195, 174)
 
