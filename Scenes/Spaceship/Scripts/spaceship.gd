@@ -8,6 +8,7 @@ class_name Spaceship
 
 signal start_boosting
 signal stop_boosting
+signal player_departed
 
 var has_left_planet:= false
 
@@ -22,7 +23,9 @@ func _physics_process(delta):
 		apply_torque(torque_value)
 		
 	if Input.is_action_pressed("speed_up"):
-		has_left_planet = true
+		if not has_left_planet:
+			player_departed.emit()
+			has_left_planet = true
 		
 		var boost_vect = -transform.y * boost_value
 		apply_force(boost_vect)
