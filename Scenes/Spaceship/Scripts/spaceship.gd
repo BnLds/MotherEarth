@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name Spaceship
 
 @export var torque_value := 50.0
-@export var boost_value := 100.0
+@export var boost_value := 300.0
 
 @onready var boost_animation = $BoostAnimation
 
