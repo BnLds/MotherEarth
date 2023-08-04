@@ -1,6 +1,5 @@
-res://Scenes/Level/Level.tscn
 res://Scenes/Spaceship/spaceship.tscn
+res://Scenes/Spaceship/Scripts/spaceship.gd
+res://Scenes/Level/Level.tscn
 res://Scenes/Planet/BigPlanet.tscn
 res://Scenes/Planet/Planets/start_planet.tscn
-res://Scenes/Spaceship/Scripts/spaceship.gd
-res://Scenes/Level/Scripts/ResourceManager.gd
