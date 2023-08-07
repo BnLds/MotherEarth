@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://wbb84r1s55pq"]
+[gd_scene load_steps=6 format=3 uid="uid://wbb84r1s55pq"]
 
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/Level.gd" id="1_1hy3g"]
 [ext_resource type="PackedScene" uid="uid://yd3o5c1m7g0e" path="res://Scenes/Spaceship/spaceship.tscn" id="1_s2bfg"]
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/ResourceManager.gd" id="2_1pd3j"]
 [ext_resource type="PackedScene" uid="uid://dsmf5k6i2gr6v" path="res://Scenes/Planet/Planets/start_planet.tscn" id="3_otrxb"]
+[ext_resource type="Script" path="res://Scenes/Level/Scripts/TestGrid.gd" id="5_t0mih"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1hy3g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(96, 97)
 
 [node name="ResourceManager" type="Node" parent="."]
 script = ExtResource("2_1pd3j")
@@ -143,14 +147,33 @@ offset_bottom = 10.0
 size_flags_horizontal = 3
 color = Color(0.760784, 0.0156863, 0.705882, 1)
 
+[node name="NewDeparture_UI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
 position = Vector2(195, 174)
-
-[node name="Camera2D" type="Camera2D" parent="Spaceship"]
 
 [node name="Planets" type="Node" parent="."]
 
 [node name="BigPlanet" parent="Planets" instance=ExtResource("3_otrxb")]
 position = Vector2(195, 216)
+
+[node name="TestGrid" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5_t0mih")
+fg_planet = Color(0.898039, 0.12549, 0.639216, 1)
 
 [connection signal="timeout" from="ResourceManager/ResourceTimer" to="ResourceManager" method="_on_resource_timer_timeout"]
