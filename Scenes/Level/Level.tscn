@@ -175,5 +175,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_t0mih")
 fg_planet = Color(0.898039, 0.12549, 0.639216, 1)
+fg_start = Color(0.329412, 0.490196, 0.952941, 1)
+fg_target = Color(0.317647, 0.141176, 0, 1)
 
 [connection signal="timeout" from="ResourceManager/ResourceTimer" to="ResourceManager" method="_on_resource_timer_timeout"]
