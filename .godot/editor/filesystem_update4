@@ -1,7 +1,7 @@
 res://Scenes/Level/Level.tscn
+res://Scenes/Level/Scripts/CameraController.gd
 res://Scenes/Spaceship/spaceship.tscn
 res://Scenes/Planet/BigPlanet.tscn
 res://Scenes/Planet/Planets/start_planet.tscn
-res://Scenes/Level/Scripts/TestGrid.gd
-res://NodelessScripts/PlanetGenerator.gd
-res://Scenes/Level/Scripts/Level.gd
+res://Scenes/Spaceship/Scripts/spaceship.gd
+res://Scenes/Level/Scripts/ResourceManager.gd

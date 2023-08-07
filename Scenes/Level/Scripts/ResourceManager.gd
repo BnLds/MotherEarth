@@ -25,8 +25,8 @@ var player_departed := false
 
 func _ready():
 	init_resources_ui()
-	spaceship.connect("start_boosting", _on_start_boosting)
-	spaceship.connect("stop_boosting", _on_stop_boosting)
+	spaceship.connect("boost_on", _on_start_boosting)
+	spaceship.connect("boost_off", _on_stop_boosting)
 	spaceship.connect("player_departed", _on_player_departed)
 
 func _on_resource_timer_timeout():

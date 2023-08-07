@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wbb84r1s55pq"]
+[gd_scene load_steps=7 format=3 uid="uid://wbb84r1s55pq"]
 
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/Level.gd" id="1_1hy3g"]
 [ext_resource type="PackedScene" uid="uid://yd3o5c1m7g0e" path="res://Scenes/Spaceship/spaceship.tscn" id="1_s2bfg"]
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/ResourceManager.gd" id="2_1pd3j"]
 [ext_resource type="PackedScene" uid="uid://dsmf5k6i2gr6v" path="res://Scenes/Planet/Planets/start_planet.tscn" id="3_otrxb"]
+[ext_resource type="Script" path="res://Scenes/Level/Scripts/CameraController.gd" id="5_jwgit"]
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/TestGrid.gd" id="5_t0mih"]
 
 [node name="Level" type="Node2D"]
@@ -160,9 +161,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
-position = Vector2(195, 174)
+position = Vector2(195, 104)
 
 [node name="Camera2D" type="Camera2D" parent="Spaceship"]
+script = ExtResource("5_jwgit")
+
+[node name="ZoomTimer" type="Timer" parent="Spaceship/Camera2D"]
+process_callback = 0
+wait_time = 0.1
 
 [node name="Planets" type="Node" parent="."]
 
@@ -180,3 +186,4 @@ fg_start = Color(0.329412, 0.490196, 0.952941, 1)
 fg_target = Color(0.317647, 0.141176, 0, 1)
 
 [connection signal="timeout" from="ResourceManager/ResourceTimer" to="ResourceManager" method="_on_resource_timer_timeout"]
+[connection signal="timeout" from="Spaceship/Camera2D/ZoomTimer" to="Spaceship/Camera2D" method="_on_zoom_timer_timeout"]

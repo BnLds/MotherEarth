@@ -6,4 +6,5 @@
 [node name="BigPlanet" instance=ExtResource("1_x668h")]
 
 [node name="Sprite2D" parent="." index="0"]
+scale = Vector2(3.1875, 3.1875)
 texture = ExtResource("2_j3cpc")
