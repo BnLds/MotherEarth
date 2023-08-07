@@ -7,9 +7,10 @@ extends Control
 @export var fg_target = Color(0.6,0.5,0.5)
 @export var rows = 100
 @export var columns = 100
-@export var space_size = 200
+@export var space_size = 100
 
 var rect_size = Vector2(space_size, space_size)
+var nbr_planets = 300
 var PlanetGenerator = preload("res://NodelessScripts/PlanetGenerator.gd")
 var x
 var y
@@ -17,7 +18,7 @@ var target
 var origin
 
 func _init():
-	var value = PlanetGenerator.GetPointsRandom(200, space_size, space_size, 10, 50)
+	var value = PlanetGenerator.GetPointsRandom(nbr_planets, space_size, space_size, 5, 30)
 	x = value[0]
 	y = value[1]
 	origin = value[2]
@@ -36,7 +37,7 @@ func _draw():
 		var to := Vector2(rect_size.x, from.y)
 		draw_line(from, to, fg_empty)
 	
-	for i in range(rect_size.x):
+	for i in range(nbr_planets):
 		draw_rect(Rect2(Vector2(x[i], y[i]), Vector2(rect_size.x/columns, rect_size.x/columns)), fg_planet)
 
 	#draw start planet
