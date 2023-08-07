@@ -15,8 +15,6 @@ var x
 var y
 var target
 var origin
-var centered_x = []
-var centered_y = []
 
 func _init():
 	var value = PlanetGenerator.GetPointsRandom(200, space_size, space_size, 10, 50)
@@ -24,9 +22,6 @@ func _init():
 	y = value[1]
 	origin = value[2]
 	target = value[3]
-	
-func _ready():
-	pass
 	
 func _draw():
 	draw_rect( Rect2(Vector2.ZERO,rect_size), bg)

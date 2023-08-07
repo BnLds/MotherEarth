@@ -4,3 +4,4 @@ res://Scenes/Planet/BigPlanet.tscn
 res://Scenes/Planet/Planets/start_planet.tscn
 res://Scenes/Level/Scripts/TestGrid.gd
 res://NodelessScripts/PlanetGenerator.gd
+res://Scenes/Level/Scripts/Level.gd
