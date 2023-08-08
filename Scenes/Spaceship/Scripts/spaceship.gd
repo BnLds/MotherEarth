@@ -36,7 +36,7 @@ func _physics_process(delta):
 		boost_off.emit()
 
 func _on_area_2d_area_entered(area):
-	if area is BigPlanet && has_left_planet:
+	if area is PlanetManager && has_left_planet:
 		sleeping = true
 		
 

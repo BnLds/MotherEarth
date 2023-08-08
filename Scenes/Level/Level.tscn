@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/Level.gd" id="1_1hy3g"]
 [ext_resource type="PackedScene" uid="uid://yd3o5c1m7g0e" path="res://Scenes/Spaceship/spaceship.tscn" id="1_s2bfg"]
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/ResourceManager.gd" id="2_1pd3j"]
-[ext_resource type="PackedScene" uid="uid://dsmf5k6i2gr6v" path="res://Scenes/Planet/Planets/start_planet.tscn" id="3_otrxb"]
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/CameraController.gd" id="5_jwgit"]
 [ext_resource type="Script" path="res://Scenes/Level/Scripts/TestGrid.gd" id="5_t0mih"]
+[ext_resource type="PackedScene" uid="uid://cuk3wguaib3cv" path="res://Scenes/Planet/Planet.tscn" id="6_5kd1v"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1hy3g")
-planet_scene = ExtResource("3_otrxb")
+planet_scene = ExtResource("6_5kd1v")
 
 [node name="ResourceManager" type="Node" parent="."]
 script = ExtResource("2_1pd3j")
@@ -161,7 +161,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
-position = Vector2(195, 104)
+position = Vector2(194, 32)
 
 [node name="Camera2D" type="Camera2D" parent="Spaceship"]
 script = ExtResource("5_jwgit")
@@ -172,8 +172,8 @@ wait_time = 0.1
 
 [node name="Planets" type="Node" parent="."]
 
-[node name="BigPlanet" parent="Planets" instance=ExtResource("3_otrxb")]
-position = Vector2(195, 216)
+[node name="Planet" parent="Planets" instance=ExtResource("6_5kd1v")]
+position = Vector2(193, 140)
 
 [node name="TestGrid" type="Control" parent="."]
 visible = false
