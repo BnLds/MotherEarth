@@ -19,6 +19,7 @@ enum Resources
 @export var has_clue := false
 @export var radius : int = 100
 
+@onready var spawn_points = $PlanetSprite/SpawnPoints
 @onready var planet_shape = $PlanetShape
 @onready var planet_sprite = $PlanetSprite
 
@@ -55,7 +56,7 @@ func _ready():
 	
 	var sprite_width = planet_sprite.texture.get_width()
 	planet_sprite.scale = Vector2.ONE * float(radius) / float(sprite_width/2)
-	
-	
 
+func show_spawn_points():
+	spawn_points.show()
 

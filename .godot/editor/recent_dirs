@@ -1,8 +1,7 @@
-res://Scenes/Planet
 res://Scenes/Planet/Scripts
-res://NodelessScripts
-res://Scenes/Planet/Planets
 res://Scenes/Level/Scripts
+res://NodelessScripts
+res://Scenes/Planet
 res://Scenes/Spaceship/Sprites
 res://Scenes/Level
 res://Scenes/Spaceship/Scripts

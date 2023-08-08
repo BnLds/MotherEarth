@@ -9,6 +9,7 @@ class_name Spaceship
 signal boost_on
 signal boost_off
 signal player_departed
+signal player_crashed
 
 var has_left_planet:= false
 
@@ -38,7 +39,7 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area is PlanetManager && has_left_planet:
 		sleeping = true
-		
+		emit_signal("player_crashed", area)
 
 func PlayBoostAnimation(should_play):
 	if should_play:

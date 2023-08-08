@@ -1,9 +1,8 @@
 res://Scenes/Level/Level.tscn
 res://Scenes/Level/Scripts/CameraController.gd
 res://Scenes/Spaceship/spaceship.tscn
-res://Scenes/Planet/BigPlanet.tscn
-res://Scenes/Planet/Planets/start_planet.tscn
-res://NodelessScripts/PlanetData.gd
 res://Scenes/Planet/Planet.tscn
-res://Scenes/Planet/Scripts/PlanetManager.gd
 res://Scenes/Spaceship/Scripts/spaceship.gd
+res://Scenes/Level/Scripts/DepartureManager.gd
+res://NodelessScripts/NewDeparture_UI.gd
+res://Scenes/Planet/Scripts/PlanetManager.gd

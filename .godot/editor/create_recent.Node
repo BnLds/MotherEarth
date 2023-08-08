@@ -1,12 +1,14 @@
+TextureButton
+Node2D
+Node
+Sprite2D
+Button
 CollisionShape2D
 Area2D
-Sprite2D
 Timer
 Control
-Node
 TileMap
 MenuButton
-Button
 AnimatedSprite2D
 Container
 ColorRect
@@ -17,4 +19,3 @@ CanvasGroup
 Camera2D
 RigidBody2D
 CharacterBody2D
-Node2D
