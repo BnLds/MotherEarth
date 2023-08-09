@@ -35,7 +35,7 @@ func _init():
 func _ready():
 	for i in range(nbr_planets):
 		var new_planet = planet_scene.instantiate()
-		new_planet.position = Vector2(screen_width * (x[i] + 0.5), screen_height * (y[i] + 0.5))
+		new_planet.position = Vector2(screen_width * (x[i] + 0.5) + randf_range(0.0, 10.0), screen_height * (y[i] + 0.5) + randf_range(0.0, 10.0))
 		planets.add_child(new_planet) 
 		
 		if x[i]== origin_coordinates[0] && y[i] == origin_coordinates[1]:
