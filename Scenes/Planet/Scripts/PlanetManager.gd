@@ -78,3 +78,13 @@ func get_north_spawn():
 	
 func get_sprite_scale():
 	return planet_scale
+
+func get_resources():
+	return {Resources.O : O_quantity, Resources.H : H_quantity, Resources.C : C_quantity, Resources.food : food_quantity, Resources.clue : has_clue}
+
+func remove_resources():
+	O_quantity = 0
+	H_quantity = 0
+	C_quantity = 0
+	food_quantity = 0
+	has_clue = false

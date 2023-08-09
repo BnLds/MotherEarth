@@ -66,6 +66,23 @@ func _on_stop_boosting():
 func _on_player_departed():
 	player_departed = true
 
-func on_crash(area):
+func on_crash(planet):
 	player_departed = false
 	is_boosting = false
+	
+	var planet_resources = planet.get_resources()
+	var limiting_resource_h2o = min(planet_resources[PlanetManager.Resources.H] / 2,planet_resources[PlanetManager.Resources.O])
+	h2o_percent += limiting_resource_h2o
+	planet_resources[PlanetManager.Resources.H] -= limiting_resource_h2o
+	planet_resources[PlanetManager.Resources.O] -= limiting_resource_h2o
+	
+	o2_percent += planet_resources[PlanetManager.Resources.O]
+	food_percent += planet_resources[PlanetManager.Resources.food]
+	fuel_percent += planet_resources[PlanetManager.Resources.C]
+	
+	h2o_percent = clamp(h2o_percent, 0, 100)
+	o2_percent = clamp(o2_percent, 0, 100)
+	food_percent = clamp(food_percent, 0, 100)
+	fuel_percent = clamp(fuel_percent, 0, 100)
+	
+	planet.remove_resources()
