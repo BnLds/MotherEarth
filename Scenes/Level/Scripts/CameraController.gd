@@ -36,7 +36,7 @@ func _process(delta):
 	if center_camera:
 		if elapsed_time < zoom_duration:
 			global_position = lerp(current_position, new_position, elapsed_time / zoom_duration)
-			zoom = lerp(current_zoom, Vector2(0.6, 0.6), elapsed_time / zoom_duration)
+			zoom = lerp(current_zoom, Vector2(0.4, 0.4), elapsed_time / zoom_duration)
 		else: 
 			zoom_timer.stop()
 			zoom_in = false
