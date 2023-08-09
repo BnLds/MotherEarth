@@ -22,6 +22,9 @@ enum Resources
 @onready var spawn_points = $PlanetSprite/SpawnPoints
 @onready var planet_shape = $PlanetShape
 @onready var planet_sprite = $PlanetSprite
+@onready var north_spawn = $PlanetSprite/SpawnPoints/NorthSpawn
+
+var planet_scale
 
 signal spawn_chosen
 
@@ -58,7 +61,8 @@ func _ready():
 	spawn_points.connect("spawn_pressed", on_spawn_chosen)
 	
 	var sprite_width = planet_sprite.texture.get_width()
-	planet_sprite.scale = Vector2.ONE * float(radius) / float(sprite_width/2)
+	planet_scale = Vector2.ONE * float(radius) / float(sprite_width/2)
+	planet_sprite.scale = planet_scale
 
 func show_spawn_points():
 	spawn_points.show()
@@ -66,5 +70,11 @@ func show_spawn_points():
 func hide_spawn_points():
 	spawn_points.hide()
 
-func on_spawn_chosen(reference_spawn, spawn_rotation):
-	spawn_chosen.emit(self, reference_spawn, spawn_rotation, planet_sprite.scale)
+func on_spawn_chosen(spawn_rotation):
+	spawn_chosen.emit(self, north_spawn, spawn_rotation, planet_scale)
+
+func get_north_spawn():
+	return north_spawn
+	
+func get_sprite_scale():
+	return planet_scale

@@ -8,16 +8,16 @@ extends Node2D
 signal spawn_pressed
 
 func _on_east_spawn_pressed():
-	spawn_pressed.emit(north_spawn, east_spawn.rotation)
+	spawn_pressed.emit(east_spawn.rotation)
 
 
 func _on_west_spawn_pressed():
-	spawn_pressed.emit(north_spawn, west_spawn.rotation)
+	spawn_pressed.emit(west_spawn.rotation)
 
 
 func _on_north_spawn_pressed():
-	spawn_pressed.emit(north_spawn, north_spawn.rotation)
+	spawn_pressed.emit(north_spawn.rotation)
 
 
 func _on_south_spawn_pressed():
-	spawn_pressed.emit(north_spawn, south_spawn.rotation)
+	spawn_pressed.emit(south_spawn.rotation)
