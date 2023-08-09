@@ -21,7 +21,7 @@ func _on_depart_button_pressed():
 func on_player_crashed(area):
 	planet_crashed = area
 	if camera_2d is CameraController:
-		camera_2d.move_camera_to(area.global_position)
+		camera_2d.move_camera_on_planet(area.global_position)
 	
 func on_spawn_chosen(sender, reference_spawn, spawn_rotation, planet_scale):
 	if reference_spawn is TextureButton:

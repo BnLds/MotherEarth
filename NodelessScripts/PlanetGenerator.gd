@@ -45,5 +45,3 @@ static func GetPointsRandom(n_points, x_width : int, y_width : int, min_dist : i
 					break
 	
 	return [x, y, origin, target_point]
-
-		

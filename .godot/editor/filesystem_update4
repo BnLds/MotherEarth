@@ -1,8 +1,5 @@
-res://Scenes/Planet/Scripts/SpawnPoints.gd
-res://Scenes/Planet/Planet.tscn
-res://Scenes/Level/Scripts/CameraController.gd
 res://Scenes/Level/Level.tscn
-res://Scenes/Spaceship/spaceship.tscn
-res://Scenes/Level/Scripts/Level.gd
-res://Scenes/Planet/Scripts/PlanetManager.gd
+res://Scenes/Level/Scripts/CameraController.gd
 res://Scenes/Level/Scripts/DepartureManager.gd
+res://Scenes/Spaceship/spaceship.tscn
+res://Scenes/Planet/Planet.tscn

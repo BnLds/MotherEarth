@@ -36,6 +36,7 @@ func _process(delta):
 	if center_camera:
 		if elapsed_time < zoom_duration:
 			global_position = lerp(current_position, new_position, elapsed_time / zoom_duration)
+			zoom = lerp(current_zoom, Vector2(0.6, 0.6), elapsed_time / zoom_duration)
 		else: 
 			zoom_timer.stop()
 			zoom_in = false
@@ -66,8 +67,10 @@ func _on_stop_boosting():
 func _on_zoom_timer_timeout():
 	elapsed_time += zoom_timer.wait_time
 
-func move_camera_to(target_position):
+func move_camera_on_planet(target_position):
 	current_position = global_position
+	current_zoom = zoom
+	
 	new_position = target_position
 	elapsed_time = 0
 	zoom_timer.start()
@@ -75,5 +78,5 @@ func move_camera_to(target_position):
 
 func reset_camera():
 	center_camera = false
-	
 	position = Vector2.ZERO
+	zoom = Vector2.ONE
