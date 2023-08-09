@@ -68,7 +68,6 @@ func _on_player_departed():
 
 func on_crash(planet):
 	player_departed = false
-	is_boosting = false
 	
 	var planet_resources = planet.get_resources()
 	var limiting_resource_h2o = min(planet_resources[PlanetManager.Resources.H] / 2,planet_resources[PlanetManager.Resources.O])

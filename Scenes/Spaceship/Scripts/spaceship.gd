@@ -46,6 +46,7 @@ func _on_area_2d_area_entered(area):
 	if area is PlanetManager && has_left_planet:
 		sleeping = true
 		is_ready_to_depart = false
+		PlayBoostAnimation(false)
 		emit_signal("player_crashed", area)
 		has_left_planet = false
 
