@@ -24,6 +24,7 @@ autostart = true
 [node name="Resource_UI" type="Control" parent="UILayer"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="H2O_UI" type="Control" parent="UILayer/Resource_UI"]
 anchors_preset = 0
@@ -153,6 +154,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 159.0
+offset_top = 176.0
+offset_right = -154.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -176,6 +181,7 @@ text = "Depart"
 metadata/_edit_use_anchors_ = true
 
 [node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
+z_index = 1
 position = Vector2(194, 32)
 
 [node name="Camera2D" type="Camera2D" parent="Spaceship"]
@@ -202,6 +208,14 @@ fg_target = Color(0.317647, 0.141176, 0, 1)
 
 [node name="DepartureManager" type="Node" parent="."]
 script = ExtResource("8_wsk1b")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 279.0
+offset_top = 105.0
+offset_right = 318.0
+offset_bottom = 137.0
 
 [connection signal="timeout" from="ResourceManager/ResourceTimer" to="ResourceManager" method="_on_resource_timer_timeout"]
 [connection signal="pressed" from="UILayer/NewDeparture_UI/DepartButton" to="UILayer/NewDeparture_UI" method="_on_depart_button_pressed"]

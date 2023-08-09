@@ -22,72 +22,93 @@ visible = false
 script = ExtResource("3_emp1x")
 
 [node name="EastSpawn" type="TextureButton" parent="PlanetSprite/SpawnPoints"]
-z_index = -1
-anchors_preset = 7
+z_index = 1
+layout_direction = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 40.6525
-offset_top = -8.0
-offset_right = 56.6525
-offset_bottom = 8.0
+anchor_bottom = 0.5
+offset_left = 41.5254
+offset_top = -7.62712
+offset_right = 57.5254
+offset_bottom = 8.37288
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 rotation = 1.5708
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("4_jjfrl")
 texture_hover = ExtResource("5_js40s")
+texture_focused = ExtResource("5_js40s")
+metadata/_edit_use_anchors_ = true
 
 [node name="WestSpawn" type="TextureButton" parent="PlanetSprite/SpawnPoints"]
-z_index = -1
-anchors_preset = 7
+z_index = 1
+layout_direction = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -40.678
-offset_top = 7.62712
+offset_top = 8.47458
 offset_right = -24.678
-offset_bottom = 23.6271
+offset_bottom = 24.4746
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 rotation = -1.5708
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("4_jjfrl")
 texture_hover = ExtResource("5_js40s")
-stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="NorthSpawn" type="TextureButton" parent="PlanetSprite/SpawnPoints"]
-z_index = -1
-anchors_preset = 7
+z_index = 1
+layout_direction = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -41.4237
-offset_right = 8.0
-offset_bottom = -25.4237
+anchor_bottom = 0.5
+offset_left = -7.62712
+offset_top = -40.678
+offset_right = 8.37288
+offset_bottom = -24.678
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("4_jjfrl")
 texture_hover = ExtResource("5_js40s")
+metadata/_edit_use_anchors_ = true
 
 [node name="SouthSpawn" type="TextureButton" parent="PlanetSprite/SpawnPoints"]
-z_index = -1
-anchors_preset = 7
+z_index = 1
+layout_direction = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = 8.47458
 offset_top = 40.678
 offset_right = 24.4746
 offset_bottom = 56.678
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 rotation = 3.14159
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("4_jjfrl")
 texture_hover = ExtResource("5_js40s")
+metadata/_edit_use_anchors_ = true
 
 [node name="PlanetShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_46map")
+
+[connection signal="pressed" from="PlanetSprite/SpawnPoints/EastSpawn" to="PlanetSprite/SpawnPoints" method="_on_east_spawn_pressed"]
+[connection signal="pressed" from="PlanetSprite/SpawnPoints/WestSpawn" to="PlanetSprite/SpawnPoints" method="_on_west_spawn_pressed"]
+[connection signal="pressed" from="PlanetSprite/SpawnPoints/NorthSpawn" to="PlanetSprite/SpawnPoints" method="_on_north_spawn_pressed"]
+[connection signal="pressed" from="PlanetSprite/SpawnPoints/SouthSpawn" to="PlanetSprite/SpawnPoints" method="_on_south_spawn_pressed"]

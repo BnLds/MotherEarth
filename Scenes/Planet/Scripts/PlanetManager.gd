@@ -23,6 +23,8 @@ enum Resources
 @onready var planet_shape = $PlanetShape
 @onready var planet_sprite = $PlanetSprite
 
+signal spawn_chosen
+
 func _init():
 	#define how many different resources the planet will have
 	planet_abundance = int(clamp(randfn(2, 1), 1, Resources.size()))
@@ -53,6 +55,7 @@ func _init():
 func _ready():
 	radius = planet_abundance * 50
 	planet_shape.shape.radius = radius
+	spawn_points.connect("spawn_pressed", on_spawn_chosen)
 	
 	var sprite_width = planet_sprite.texture.get_width()
 	planet_sprite.scale = Vector2.ONE * float(radius) / float(sprite_width/2)
@@ -60,3 +63,8 @@ func _ready():
 func show_spawn_points():
 	spawn_points.show()
 
+func hide_spawn_points():
+	spawn_points.hide()
+
+func on_spawn_chosen(reference_spawn, spawn_rotation):
+	spawn_chosen.emit(self, reference_spawn, spawn_rotation, planet_sprite.scale)

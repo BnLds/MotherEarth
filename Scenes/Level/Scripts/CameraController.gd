@@ -1,13 +1,17 @@
 extends Camera2D
+class_name CameraController
 
 @onready var spaceship = $".."
 @onready var zoom_timer = $ZoomTimer
 
 var zoom_out := false
 var zoom_in := false
+var center_camera := false
 var elapsed_time : float = 0
 var zoom_duration : float = 3
 var current_zoom
+var current_position
+var new_position
 var is_boosting := false
 
 func _ready():
@@ -28,6 +32,14 @@ func _process(delta):
 		else: 
 			zoom_timer.stop()
 			zoom_in = false
+	
+	if center_camera:
+		if elapsed_time < zoom_duration:
+			global_position = lerp(current_position, new_position, elapsed_time / zoom_duration)
+		else: 
+			zoom_timer.stop()
+			zoom_in = false
+	
 
 func _on_start_boosting():
 	if is_boosting:
@@ -50,6 +62,18 @@ func _on_stop_boosting():
 	zoom_in = true
 	zoom_out = false
 	zoom_timer.start()
-
+	
 func _on_zoom_timer_timeout():
 	elapsed_time += zoom_timer.wait_time
+
+func move_camera_to(target_position):
+	current_position = global_position
+	new_position = target_position
+	elapsed_time = 0
+	zoom_timer.start()
+	center_camera = true
+
+func reset_camera():
+	center_camera = false
+	
+	position = Vector2.ZERO
