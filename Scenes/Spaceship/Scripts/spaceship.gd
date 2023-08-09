@@ -13,14 +13,14 @@ signal player_departed
 signal player_crashed
 
 var has_left_planet:= false
-var is_player_crashed := false
+var is_ready_to_depart := true
 
 func _ready():
 	PlayBoostAnimation(false)
 	departure_manager.connect("ready_to_depart", on_ready_to_depart)
 
 func _physics_process(delta):
-	if is_player_crashed:
+	if not is_ready_to_depart:
 		return
 		
 	if Input.is_action_pressed("rotate_left"):
@@ -45,8 +45,9 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area is PlanetManager && has_left_planet:
 		sleeping = true
-		is_player_crashed = true
+		is_ready_to_depart = false
 		emit_signal("player_crashed", area)
+		has_left_planet = false
 
 func PlayBoostAnimation(should_play):
 	if should_play:
@@ -56,5 +57,5 @@ func PlayBoostAnimation(should_play):
 		boost_animation.hide()
 		
 func on_ready_to_depart():
-	is_player_crashed = false
+	is_ready_to_depart = true
 	

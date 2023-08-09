@@ -7,3 +7,4 @@ res://Scenes/Level/Scripts/Level.gd
 res://Scenes/Planet/Scripts/PlanetManager.gd
 res://Scenes/Planet/Scripts/SpawnPoints.gd
 res://Scenes/Spaceship/Scripts/spaceship.gd
+res://Scenes/Level/Scripts/ResourceManager.gd

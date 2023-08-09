@@ -28,6 +28,7 @@ func _ready():
 	spaceship.connect("boost_on", _on_start_boosting)
 	spaceship.connect("boost_off", _on_stop_boosting)
 	spaceship.connect("player_departed", _on_player_departed)
+	spaceship.connect("player_crashed", on_crash)
 
 func _on_resource_timer_timeout():
 	if not player_departed:
@@ -64,3 +65,7 @@ func _on_stop_boosting():
 
 func _on_player_departed():
 	player_departed = true
+
+func on_crash(area):
+	player_departed = false
+	is_boosting = false
