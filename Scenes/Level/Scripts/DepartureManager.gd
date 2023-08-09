@@ -4,6 +4,8 @@ class_name DepartureManager
 @onready var spaceship = $"../Spaceship"
 @onready var camera_2d : CameraController = $"../Spaceship/Camera2D"
 
+signal ready_to_depart
+
 var planet_crashed
 var spaceship_offset_y = 10
 var spawn_sprite_offset_y = 2
@@ -32,6 +34,7 @@ func on_spawn_chosen(sender, reference_spawn, spawn_rotation, planet_scale):
 		camera_2d.reset_camera()
 	
 	spaceship.show()
+	ready_to_depart.emit()
 	
 func position_player_on_spawn(planet, ref_spawn, spawn_angle, planet_scale):
 	if ref_spawn is TextureButton:

@@ -5,6 +5,7 @@ class_name Spaceship
 @export var boost_value := 300.0
 
 @onready var boost_animation = $BoostAnimation
+@onready var departure_manager = $"../DepartureManager"
 
 signal boost_on
 signal boost_off
@@ -12,11 +13,16 @@ signal player_departed
 signal player_crashed
 
 var has_left_planet:= false
+var is_player_crashed := false
 
 func _ready():
 	PlayBoostAnimation(false)
+	departure_manager.connect("ready_to_depart", on_ready_to_depart)
 
 func _physics_process(delta):
+	if is_player_crashed:
+		return
+		
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(-torque_value)
 		
@@ -39,6 +45,7 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area is PlanetManager && has_left_planet:
 		sleeping = true
+		is_player_crashed = true
 		emit_signal("player_crashed", area)
 
 func PlayBoostAnimation(should_play):
@@ -48,5 +55,6 @@ func PlayBoostAnimation(should_play):
 	else:
 		boost_animation.hide()
 		
-	
+func on_ready_to_depart():
+	is_player_crashed = false
 	
