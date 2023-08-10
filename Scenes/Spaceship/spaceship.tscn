@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://yd3o5c1m7g0e"]
+[gd_scene load_steps=12 format=3 uid="uid://yd3o5c1m7g0e"]
 
 [ext_resource type="Texture2D" uid="uid://ch1xtwv0c14mb" path="res://Scenes/Spaceship/Sprites/Fusée.png" id="1_h1jwr"]
 [ext_resource type="Script" path="res://Scenes/Spaceship/Scripts/spaceship.gd" id="1_rej84"]
 [ext_resource type="Texture2D" uid="uid://bln8ukbrplk45" path="res://Scenes/Spaceship/Sprites/BoostFire.png" id="3_ky1yq"]
+[ext_resource type="Texture2D" uid="uid://b7ic02841emav" path="res://Scenes/Spaceship/Sprites/Arrow.png" id="4_la7fq"]
+[ext_resource type="Script" path="res://Scenes/Spaceship/Sprites/ArrowSprite.gd" id="5_rqdde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86gcg"]
 size = Vector2(5.75, 12)
@@ -69,4 +71,20 @@ sprite_frames = SubResource("SpriteFrames_v6s1j")
 frame = 3
 frame_progress = 0.723369
 
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.396078)
+position = Vector2(0, -46)
+rotation = 0.011984
+scale = Vector2(2.125, 2.125)
+texture = ExtResource("4_la7fq")
+script = ExtResource("5_rqdde")
+
+[node name="ArrowUpdateTimer" type="Timer" parent="ArrowSprite"]
+wait_time = 0.5
+
+[node name="LerpTimer" type="Timer" parent="ArrowSprite"]
+wait_time = 0.1
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="ArrowSprite/ArrowUpdateTimer" to="ArrowSprite" method="_on_arrow_update_timer_timeout"]
+[connection signal="timeout" from="ArrowSprite/LerpTimer" to="ArrowSprite" method="_on_lerp_timer_timeout"]

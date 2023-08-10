@@ -6,6 +6,7 @@ class_name Spaceship
 
 @onready var boost_animation = $BoostAnimation
 @onready var departure_manager = $"../DepartureManager"
+@onready var level = $".."
 
 signal boost_on
 signal boost_off
@@ -14,10 +15,12 @@ signal player_crashed
 
 var has_left_planet:= false
 var is_ready_to_depart := true
+var target_position := Vector2.ZERO
 
 func _ready():
 	PlayBoostAnimation(false)
 	departure_manager.connect("ready_to_depart", on_ready_to_depart)
+	level.connect("initialization_complete", on_initialization_complete)
 
 func _physics_process(delta):
 	if not is_ready_to_depart:
@@ -59,4 +62,9 @@ func PlayBoostAnimation(should_play):
 		
 func on_ready_to_depart():
 	is_ready_to_depart = true
-	
+
+func on_initialization_complete(target_pos):
+	target_position = target_pos
+
+func get_target_position():
+	return target_position

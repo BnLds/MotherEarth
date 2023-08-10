@@ -1,12 +1,12 @@
+Timer
+Sprite2D
 Control
 TextureButton
 Node2D
 Node
-Sprite2D
 Button
 CollisionShape2D
 Area2D
-Timer
 TileMap
 MenuButton
 AnimatedSprite2D

@@ -23,7 +23,10 @@ var x
 var y
 var origin_coordinates
 var target_coordinates
+var target_position
+var signal_emitted := false 
 
+signal initialization_complete
 
 func _init():
 	var value = PlanetGenerator.GetPointsRandom(nbr_planets, space_size, space_size, min_dist_planets, min_dist_target)
@@ -42,6 +45,16 @@ func _ready():
 			new_planet.is_start_planet = true
 			if departure_manager is DepartureManager:
 				departure_manager.position_player_on_spawn(new_planet, new_planet.get_north_spawn(), 0, new_planet.get_sprite_scale())
+				target_position = new_planet.position
+				
+		if x[i]== target_coordinates[0] && y[i] == target_coordinates[1]:
+			target_position = new_planet.position
+
+func _process(delta):
+	if not signal_emitted:
+		initialization_complete.emit(target_position)
+		signal_emitted = true
+		
 
 func _input(event):
 	if event.is_action_pressed("restart"):
