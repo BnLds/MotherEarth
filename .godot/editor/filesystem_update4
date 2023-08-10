@@ -4,3 +4,4 @@ res://Scenes/Spaceship/spaceship.tscn
 res://Scenes/Planet/Planet.tscn
 res://Scenes/Spaceship/Sprites/ArrowSprite.gd
 res://Scenes/Level/Scripts/Level.gd
+res://NodelessScripts/PlanetGenerator.gd

@@ -3,36 +3,45 @@ static func GetPointsRandom(n_points, x_width : int, y_width : int, min_dist : i
 	var y := []
 	var target_point
 	var origin = Vector2(floor(x_width/2), floor(y_width/2))
+	var generation_successful := false
 	
 	var dist_2 := min_dist * min_dist
-	var i_loop := 1
-	var n_valid_points := 0
+	var i_loop
+	var n_valid_points
 	
-	#first planet is origin
-	x.append(origin.x)
-	y.append(origin.y)
-	
-	while n_valid_points < n_points && i_loop < 1e6:
-		var x_new : int = floor(x_width * randf())
-		var y_new : int = floor(y_width * randf())
+	while not generation_successful:
+		i_loop = 1
+		n_valid_points = 1
+		x = []
+		y = []
 		
-		var is_valid := true
-		for i in range(n_valid_points):
-			var dist_x : float = x[i] - x_new
-			var dist_y :float = y[i] - y_new
-			if dist_x * dist_x + dist_y * dist_y < dist_2:
-				is_valid = false
-				break
+		#first planet is origin
+		x.append(origin.x)
+		y.append(origin.y)
 		
-		if is_valid:
-			n_valid_points += 1
-			x.append(x_new)
-			y.append(y_new)
+		while n_valid_points < n_points && i_loop < 1e6:
+			var x_new : int = floor(x_width * randf())
+			var y_new : int = floor(y_width * randf())
+			
+			var is_valid := true
+			for i in range(n_valid_points):
+				var dist_x : float = x[i] - x_new
+				var dist_y :float = y[i] - y_new
+				if dist_x * dist_x + dist_y * dist_y < dist_2:
+					is_valid = false
+					break
+			
+			if is_valid:
+				n_valid_points += 1
+				x.append(x_new)
+				y.append(y_new)
+			
+			i_loop +=1
 		
-		i_loop +=1
-	
-	if n_valid_points < n_points:
-		push_error("Cannot find wanted number of points in " + str(i_loop) + " iterations.")
+		if n_valid_points < n_points:
+			print("Cannot find wanted number of points in " + str(i_loop) + " iterations.")
+		else:
+			generation_successful = true
 	
 	if n_points > 2:
 		for i in range(n_points):
