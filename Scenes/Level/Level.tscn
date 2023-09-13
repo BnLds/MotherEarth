@@ -19,6 +19,8 @@ script = ExtResource("2_1pd3j")
 [node name="ResourceTimer" type="Timer" parent="ResourceManager"]
 autostart = true
 
+[node name="ResourceUITimer" type="Timer" parent="ResourceManager"]
+
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="Resource_UI" type="Control" parent="UILayer"]
@@ -180,6 +182,21 @@ grow_vertical = 0
 text = "Depart"
 metadata/_edit_use_anchors_ = true
 
+[node name="NewRessource_UI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="NewRessourceLabel" type="Label" parent="UILayer/NewRessource_UI"]
+visible = false
+layout_mode = 0
+offset_left = 172.0
+offset_top = 4.0
+offset_right = 221.0
+offset_bottom = 19.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "+XX H2O"
+
 [node name="Spaceship" parent="." instance=ExtResource("1_s2bfg")]
 z_index = 1
 position = Vector2(194, 32)
@@ -191,17 +208,21 @@ script = ExtResource("5_jwgit")
 process_callback = 0
 wait_time = 0.1
 
-[node name="Planets" type="Node" parent="."]
-
-[node name="TestGrid" type="Control" parent="."]
+[node name="TestGrid" type="Control" parent="Spaceship"]
 visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
+offset_left = -194.0
+offset_top = -32.0
+offset_right = -194.0
+offset_bottom = -32.0
 script = ExtResource("5_t0mih")
 fg_planet = Color(0.898039, 0.12549, 0.639216, 1)
 fg_start = Color(0.329412, 0.490196, 0.952941, 1)
 fg_target = Color(0.317647, 0.141176, 0, 1)
+
+[node name="Planets" type="Node" parent="."]
 
 [node name="DepartureManager" type="Node" parent="."]
 script = ExtResource("8_wsk1b")

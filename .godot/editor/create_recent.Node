@@ -1,6 +1,7 @@
+Label
+Control
 Timer
 Sprite2D
-Control
 TextureButton
 Node2D
 Node
@@ -13,7 +14,6 @@ AnimatedSprite2D
 Container
 ColorRect
 HBoxContainer
-Label
 CanvasLayer
 CanvasGroup
 Camera2D

@@ -23,6 +23,10 @@ enum Resources
 @onready var planet_shape = $PlanetShape
 @onready var planet_sprite = $PlanetSprite
 @onready var north_spawn = $PlanetSprite/SpawnPoints/NorthSpawn
+@onready var c_resource_label = $PlanetResources_UI/CResourceLabel
+@onready var o_resource_label = $PlanetResources_UI/OResourceLabel
+@onready var h_resource_label = $PlanetResources_UI/HResourceLabel
+@onready var food_resource_label = $PlanetResources_UI/FoodResourceLabel
 
 var planet_scale
 
@@ -53,7 +57,6 @@ func _init():
 				food_quantity = int(clamp(randfn(50, 15), 0, 100))
 			Resources.clue:
 				has_clue= true
-
 	
 func _ready():
 	radius = planet_abundance * 50
@@ -63,6 +66,8 @@ func _ready():
 	var sprite_width = planet_sprite.texture.get_width()
 	planet_scale = Vector2.ONE * float(radius) / float(sprite_width/2)
 	planet_sprite.scale = planet_scale
+	
+	show_resources_ui(O_quantity, H_quantity, C_quantity, food_quantity)
 
 func show_spawn_points():
 	spawn_points.show()
@@ -88,3 +93,15 @@ func remove_resources():
 	C_quantity = 0
 	food_quantity = 0
 	has_clue = false
+	show_resources_ui(O_quantity, H_quantity, C_quantity, food_quantity)
+	
+	
+func show_resources_ui(O, H, C, food):
+	if(O == 0):
+		o_resource_label.hide()
+	if(C == 0):
+		c_resource_label.hide()
+	if(H == 0):
+		h_resource_label.hide()
+	if(food == 0):
+		food_resource_label.hide()

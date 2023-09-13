@@ -9,6 +9,8 @@ extends Node
 @onready var fuel_bar_fill = $"../UILayer/Resource_UI/Fuel_UI/FuelBarFill"
 @onready var fuel_bar_background = $"../UILayer/Resource_UI/Fuel_UI/FuelBarBackground"
 @onready var spaceship = $"../Spaceship"
+@onready var new_ressource_label = $"../UILayer/NewRessource_UI/NewRessourceLabel"
+@onready var resource_ui_timer = $ResourceUITimer
 
 var h2o_percent_ini = 100
 var o2_percent_ini = 100
@@ -75,9 +77,18 @@ func on_crash(planet):
 	planet_resources[PlanetManager.Resources.H] -= limiting_resource_h2o
 	planet_resources[PlanetManager.Resources.O] -= limiting_resource_h2o
 	
-	o2_percent += planet_resources[PlanetManager.Resources.O]
+	var o2_gain = planet_resources[PlanetManager.Resources.O] / 2
+	
+	o2_percent += o2_gain
 	food_percent += planet_resources[PlanetManager.Resources.food]
 	fuel_percent += planet_resources[PlanetManager.Resources.C]
+	
+	show_new_resources(
+		limiting_resource_h2o,
+		o2_gain,
+		planet_resources[PlanetManager.Resources.food],
+		planet_resources[PlanetManager.Resources.C]
+		)
 	
 	h2o_percent = clamp(h2o_percent, 0, 100)
 	o2_percent = clamp(o2_percent, 0, 100)
@@ -85,3 +96,41 @@ func on_crash(planet):
 	fuel_percent = clamp(fuel_percent, 0, 100)
 	
 	planet.remove_resources()
+
+func show_new_resources(h2o_quantity, o2_quantity, food_quantity, fuel_quantity):
+	if(h2o_quantity != 0):
+		new_ressource_label.text = "+" + str(h2o_quantity) + " H2O"
+		new_ressource_label.show()
+		resource_ui_timer.start()
+		await resource_ui_timer.timeout
+		print("h2o")
+		resource_ui_timer.stop()
+		new_ressource_label.hide()
+		
+	if(o2_quantity != 0):
+		new_ressource_label.text = "+" + str(o2_quantity) + " O2"
+		new_ressource_label.show()
+		resource_ui_timer.start()
+		await resource_ui_timer.timeout
+		print("o2")
+		resource_ui_timer.stop()		
+		new_ressource_label.hide()
+		
+	if(food_quantity != 0):
+		new_ressource_label.text = "+" + str(food_quantity) + " food"
+		new_ressource_label.show()
+		resource_ui_timer.start()
+		await resource_ui_timer.timeout
+		print("food")
+		resource_ui_timer.stop()		
+		new_ressource_label.hide()
+		
+	if(fuel_quantity != 0):
+		new_ressource_label.text = "+" + str(fuel_quantity) + " fuel"
+		new_ressource_label.show()
+		resource_ui_timer.start()
+		await resource_ui_timer.timeout
+		print("fuel")
+		resource_ui_timer.stop()		
+		new_ressource_label.hide()
+		

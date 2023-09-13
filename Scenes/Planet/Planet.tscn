@@ -108,6 +108,43 @@ metadata/_edit_use_anchors_ = true
 [node name="PlanetShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_46map")
 
+[node name="PlanetResources_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CResourceLabel" type="Label" parent="PlanetResources_UI"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -17.0
+theme_override_font_sizes/font_size = 10
+text = "C"
+horizontal_alignment = 1
+
+[node name="OResourceLabel" type="Label" parent="PlanetResources_UI"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 22.0
+theme_override_font_sizes/font_size = 10
+text = "O"
+horizontal_alignment = 1
+
+[node name="HResourceLabel" type="Label" parent="PlanetResources_UI"]
+layout_mode = 0
+offset_left = -22.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 10
+text = "H"
+horizontal_alignment = 1
+
+[node name="FoodResourceLabel" type="Label" parent="PlanetResources_UI"]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 10
+text = "Food
+"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="PlanetSprite/SpawnPoints/EastSpawn" to="PlanetSprite/SpawnPoints" method="_on_east_spawn_pressed"]
 [connection signal="pressed" from="PlanetSprite/SpawnPoints/WestSpawn" to="PlanetSprite/SpawnPoints" method="_on_west_spawn_pressed"]
 [connection signal="pressed" from="PlanetSprite/SpawnPoints/NorthSpawn" to="PlanetSprite/SpawnPoints" method="_on_north_spawn_pressed"]

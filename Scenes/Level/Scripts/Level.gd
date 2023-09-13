@@ -11,7 +11,7 @@ extends Node2D
 @export var space_size = 100
 @export var planet_scene : PackedScene
 var nbr_planets = 300
-var min_dist_planets = 5
+var min_dist_planets = 3
 var min_dist_target = 30
 var rect_size = Vector2(space_size, space_size)
 var PlanetGenerator = preload("res://NodelessScripts/PlanetGenerator.gd")
