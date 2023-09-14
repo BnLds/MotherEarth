@@ -14,3 +14,4 @@ data_*/
 .godot/editor/editor_layout.cfg
 .godot/editor/filesystem_cache8
 *.cfg
+.godot/editor/script_editor_cache.cfg

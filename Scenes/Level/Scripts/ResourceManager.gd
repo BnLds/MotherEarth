@@ -33,6 +33,12 @@ func _ready():
 	spaceship.connect("player_crashed", on_crash)
 
 func _on_resource_timer_timeout():
+	h2o_bar_fill.size.x = h2o_bar_background.size.x * h2o_percent / 100
+	o2_bar_fill.size.x = o2_bar_background.size.x * o2_percent / 100
+	food_bar_fill.size.x = food_bar_background.size.x * food_percent / 100
+	fuel_bar_fill.size.x = fuel_bar_background.size.x * fuel_percent / 100
+	
+	
 	if not player_departed:
 		return
 	
@@ -45,10 +51,6 @@ func _on_resource_timer_timeout():
 	if is_boosting && fuel_percent != 0:
 		fuel_percent -= 4
 	
-	h2o_bar_fill.size.x = h2o_bar_background.size.x * h2o_percent / 100
-	o2_bar_fill.size.x = o2_bar_background.size.x * o2_percent / 100
-	food_bar_fill.size.x = food_bar_background.size.x * food_percent / 100
-	fuel_bar_fill.size.x = fuel_bar_background.size.x * fuel_percent / 100
 
 func init_resources_ui():
 	h2o_percent = h2o_percent_ini
