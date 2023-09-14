@@ -3,4 +3,3 @@ res://Scenes/Level/Scripts/CameraController.gd
 res://Scenes/Spaceship/spaceship.tscn
 res://Scenes/Planet/Planet.tscn
 res://Scenes/Level/Scripts/ResourceManager.gd
-res://Scenes/Planet/Scripts/PlanetManager.gd
