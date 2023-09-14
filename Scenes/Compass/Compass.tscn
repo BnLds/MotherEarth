@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca1r5ku8jb5td"]
+
+[ext_resource type="Texture2D" uid="uid://dso2ibya48ujs" path="res://Scenes/Compass/Sprites/Compass.png" id="1_jdnrl"]
+[ext_resource type="Texture2D" uid="uid://bmtp6ncq113hv" path="res://Scenes/Compass/Sprites/ArrowCompass.png" id="2_luokk"]
+
+[node name="Compass" type="Node2D"]
+
+[node name="Compass" type="Sprite2D" parent="."]
+position = Vector2(352, 184)
+texture = ExtResource("1_jdnrl")
+
+[node name="ArrowCompass" type="Sprite2D" parent="Compass"]
+position = Vector2(-1, 0)
+texture = ExtResource("2_luokk")
