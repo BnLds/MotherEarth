@@ -35,11 +35,14 @@ func _ready():
 func _on_resource_timer_timeout():
 	if not player_departed:
 		return
-		
-	h2o_percent -= 1
-	o2_percent -= 1
-	food_percent -= 1
-	if is_boosting:
+	
+	if h2o_percent != 0:
+		h2o_percent -= 1
+	if o2_percent != 0:
+		o2_percent -= 1
+	if food_percent != 0:
+		food_percent -= 1
+	if is_boosting && fuel_percent != 0:
 		fuel_percent -= 4
 	
 	h2o_bar_fill.size.x = h2o_bar_background.size.x * h2o_percent / 100
